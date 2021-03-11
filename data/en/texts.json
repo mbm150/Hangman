@@ -1,0 +1,50 @@
+{
+  "template": {
+    "title": "Hangman"
+  },
+  "categories": {
+    "levels": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    }
+  },
+  "game": {
+    "mistakes": "Mistakes",
+    "letters": "Letters",
+    "win": {
+      "title": "You win!",
+      "p": "Congratulations, the hidden word was "
+    },
+    "lose": {
+      "title": "Game over",
+      "p": "You have run out of attempts. The word was "
+    }
+  },
+  "addWord": {
+    "list": {
+      "title": "Words",
+      "empty": "No words."
+    },
+    "form": {
+      "title": "Add",
+      "input": "Write your word"
+    }
+  },
+  "controls": {
+    "general": {
+      "title": "General Controls",
+      "l1": "Back to menu."
+    },
+    "game": {
+      "title": "Game Controls",
+      "l1": "Select letter.",
+      "l2": "Back to menu.",
+      "l3": "When game is over, load another word."
+    }
+  },
+  "options": {
+    "lang": "Language",
+    "rate": "Rate Us"
+  }
+}

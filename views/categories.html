@@ -1,0 +1,10 @@
+<ul class="levels">
+  <li ng-class="{active: level === 1}" ng-click="categories.setLevel(1)">{{texts.categories.levels.easy}}</li>
+  <li ng-class="{active: level === 2}" ng-click="categories.setLevel(2)">{{texts.categories.levels.medium}}</li>
+  <li ng-class="{active: level === 3}" ng-click="categories.setLevel(3)">{{texts.categories.levels.hard}}</li>
+</ul>
+<ul class="categories">
+  <li ng-repeat="item in categories.list">
+    <a ng-href="#/game/{{item.id}}">{{item.name}}</a>
+  </li>
+</ul>

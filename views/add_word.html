@@ -1,0 +1,19 @@
+<div class="content word-list">
+  <h2>{{texts.addWord.list.title}}</h2>
+  <ul>
+    <li ng-repeat="item in add.words">
+      <span>{{item.name}}</span>
+      <button class="remove" ng-click="add.removeWord(item.name)"></button>
+    </li>
+  </ul>
+  <span ng-if="add.words.length === 0">{{texts.addWord.list.empty}}</span>
+</div>
+<div class="content word-form">
+  <h2>{{texts.addWord.form.title}}</h2>
+  <form ng-submit="add.setWord()">
+    <select ng-model="add.select" ng-options="item.name for item in add.categories" required></select>
+    <input type="text" ng-model="add.word" placeholder="{{texts.addWord.form.input}}" required>
+    <button type="submit" class="submit"></button>
+  </form>
+</div>
+{{add.ver}}

@@ -1,0 +1,50 @@
+{
+  "template": {
+    "title": "Ahorcado"
+  },
+  "categories": {
+    "levels": {
+      "easy": "Fácil",
+      "medium": "Normal",
+      "hard": "Difícil"
+    }
+  },
+  "game": {
+    "mistakes": "Fallos",
+    "letters": "Letras",
+    "win": {
+      "title": "¡Has ganado!",
+      "p": "Enhorabuena, has acertado. La palabra oculta era "
+    },
+    "lose": {
+      "title": "Has perdido",
+      "p": "Lástima, se te han acabado los intentos. La palabra era "
+    }
+  },
+  "addWord": {
+    "list": {
+      "title": "Palabras",
+      "empty": "No hay palabras."
+    },
+    "form": {
+      "title": "Añadir",
+      "input": "Escribe tu palabra"
+    }
+  },
+  "controls": {
+    "general": {
+      "title": "Controles Generales",
+      "l1": "Volver al menú."
+    },
+    "game": {
+      "title": "Controles Juego",
+      "l1": "Seleccionar letra.",
+      "l2": "Volver al menú.",
+      "l3": "Cuando el juego ha acabado, cargar otra palabra."
+    }
+  },
+  "options": {
+    "lang": "Idioma",
+    "rate": "Puntúanos"
+  }
+}

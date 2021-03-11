@@ -1,0 +1,31 @@
+<div class="content game">
+  <h2>{{texts.game.mistakes}}: {{game.mistakes}}/{{game.limit}}</h2>
+  <div class="img">
+    <img ng-src="./images/game/g_f{{(11 - game.limit) + (game.mistakes + 1)}}.png" alt="{{texts.template.title}}">
+  </div>
+  <ul ng-repeat="word in game.word">
+    <li ng-repeat="item in word.data">
+      <span ng-if="item.state">{{item.letter}}</span>
+    </li>
+  </ul>
+</div>
+<div class="content letters">
+  <h2>{{texts.game.letters}}</h2>
+  <ul>
+    <li ng-repeat="item in game.letters" ng-class="{success: item.success, error: item.error}" ng-click="game.letter(item.letter)">{{item.letter}}</li>
+  </ul>
+</div>
+<div class="popup" ng-if="game.finish != ''">
+  <article ng-if="game.finish == 'win'">
+    <h3>{{texts.game.win.title}}</h3>
+    <p>{{texts.game.win.p}} <span>{{game.allWord}}</span></p>
+    <a class="button back" href="#/"></a>
+    <button class="button reload" ng-click="game.start()"></button>
+  </article>
+  <article ng-if="game.finish == 'lose'">
+    <h3>{{texts.game.lose.title}}</h3>
+    <p>{{texts.game.lose.p}}  <span>{{game.allWord}}</span></p>
+    <a class="button back" href="#/"></a>
+    <button class="button reload" ng-click="game.start()"></button>
+  </article>
+</div>

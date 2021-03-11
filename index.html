@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="HangmanApp" ng-csp>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <title>Ahorcado</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <meta name="theme-color" content="#1565C0">
+  <link rel="icon" sizes="192x192" href="images/192x192s.png">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body ng-controller="MainCntrl as main" ng-keydown="main.control($event)" ng-keypress="main.keypress($event)">
+  <nav id="nav">
+    <a class="back" href="#/" ng-if="!main.categoriesRoute"></a>
+    <ul>
+      <li><a class="add" href="#/add_word"></a></li>
+      <li><a class="controls" href="#/controls"></a></li>
+      <li><a class="options" href="#/options"></a></li>
+    </ul>
+  </nav>
+  <main id="container" ng-view></main>
+  <!--<script src="libs/google-analytics-bundle.js"></script>-->
+  <script src="libs/jquery.min.js"></script>
+  <script src="libs/angular.min.js"></script>
+  <script src="libs/angular-animate.min.js"></script>
+  <script src="libs/angular-resource.min.js"></script>
+  <script src="libs/angular-route.min.js"></script>
+  <script src="javascripts/main.js"></script>
+</body>
+</html>
