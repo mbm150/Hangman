@@ -1,6 +1,8 @@
 {
   "short_name": "Ahorcado",
   "name": "Ahorcado",
+  "description": "juewgo",
+  "lang": "es-ES",
   "icons": [
     {
       "src": "images/96x96.png",
@@ -18,7 +20,8 @@
       "type": "image/png"
     }
   ],
-  "start_url": "index.html",
-  "display": "standalone",
-  "orientation": "portrait"
+  "start_url": "./?utm_source=web_app_manifest",
+  "theme_color": "aliceblue",
+  "background_color": "red",
+  "display": "minimal-ui"
 }

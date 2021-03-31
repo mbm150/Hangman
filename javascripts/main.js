@@ -17,7 +17,7 @@
         controller: 'CategoriesCntrl',
         controllerAs: 'categories'
       })
-      .when('/game/:id', {
+      .when('/game/:id/:name', {
         templateUrl: './views/game.html',
         controller: 'GameCntrl',
         controllerAs: 'game'
@@ -68,7 +68,7 @@
       }
     });
     // Lenguage and resources
-    $scope.lang = localStorage.lang || 'es';
+    $scope.lang = localStorage.getItem('lang') || 'es';
 
     DATA.texts($scope.lang).success(function(data){
       $scope.texts = data;
@@ -109,10 +109,10 @@
       });
     });
     // Levels
-    $scope.level = parseInt(localStorage.level) || 2;
+    $scope.level = parseInt(localStorage.getItem('level')) || 2;
 
     categories.setLevel = function(level){
-      localStorage.level = parseInt(level);
+      localStorage.setItem('level', parseInt(level));
       $scope.level = level;
 
     };
@@ -127,9 +127,11 @@
         game.start();
       }
     });
+    //Categoria para tirulo
+    $scope.currentCategory = $routeParams['name'];
     // Level
     game.level = function(){
-        $scope.level = localStorage.level || 2;
+        $scope.level = localStorage.getItem('level') || 2;
         if($scope.level == 1){
           game.limit = 11;
         }else if($scope.level == 2){
@@ -145,7 +147,7 @@
       game.limit = 11;
       game.level();
       // Add words
-        game.data = localStorage.words || '';
+        game.data = JSON.parse(localStorage.getItem('words')) || false;
         if(game.data){
           game.data = $filter('filter')(game.data, {'lang': $scope.lang}, true);
         }
@@ -249,12 +251,13 @@
     // Words
     add.getWords = function(){
       add.words = [];
-      
-        var words = localStorage.words || [];
+        var words1 = localStorage.getItem('words') || '[]';
+        words = JSON.parse(words1);
+
         if(words.length > 0){
-          add.words = $filter('filter')(words, {'lang': $scope.lang}, true);
+          var filtro = $filter('filter')(words, {'lang': $scope.lang}, true);
+          add.words = filtro;
         }
-      
     };
     add.getWords();
     // Categories
@@ -264,18 +267,22 @@
     });
     // Add Words
     add.setWord = function(){
-      var word = {'lang': $scope.lang, 'category': parseInt(add.select.id), 'name': add.word.toLowerCase()};
+      var word = [{'lang': $scope.lang, 'category': parseInt(add.select.id), 'name': add.word.toLowerCase()}];
+      var words1 = localStorage.getItem('words') || '[]';
+      words = JSON.parse(words1);
+      words.push(word[0]);
+      localStorage.removeItem('words');
+      localStorage.setItem('words', JSON.stringify(words));
       add.word = '';
-      add.words.push(word);
-      localStorage.words = add.words;
+      add.words.push(word[0]);
     };
     // Remove Words
     add.removeWord = function(word){
       var words = $filter('filter')(add.words, {'name': word}, function(actual, expected){
         return !angular.equals(actual, expected);
       });
-
-      localStorage.words = words;
+      localStorage.removeItem('words');
+      localStorage.setItem('words', JSON.stringify(words));
       add.words = words;
     };
   }]);
@@ -284,7 +291,8 @@
     var options = this;
     // Set Lang
     options.setLang = function(lang){
-      localStorage.lang = lang;
+      localStorage.setItem('lang', lang);
+      location.reload();
     };
   }]);
 })();

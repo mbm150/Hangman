@@ -1,4 +1,5 @@
 <div class="content game">
+  <span class="category">{{currentCategory}}</span>
   <h2>{{texts.game.mistakes}}: {{game.mistakes}}/{{game.limit}}</h2>
   <div class="img">
     <img ng-src="./images/game/g_f{{(11 - game.limit) + (game.mistakes + 1)}}.png" alt="{{texts.template.title}}">
