@@ -501,6 +501,10 @@ span.category{
 }
 }
 @media only screen and (min-width:979px){
+  .categories li{
+    width: 30%;
+    margin: 10px 1.66%;
+  }
 /*** CONTAINER ***/
 .content{
   width: 45%;
@@ -536,8 +540,8 @@ span.category{
   width: 90%;
 }
 .categories li{
-  width: 30%;
-  margin: 10px 1.66%;
+  width: 23%;
+  margin: 10px 1%;
 }
 }@media only screen and (min-width:1679px){
 /* CATEGORIES */
