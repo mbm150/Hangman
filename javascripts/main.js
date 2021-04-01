@@ -99,7 +99,7 @@
   // Categories Controller
   app.controller('CategoriesCntrl', ['$scope', 'DATA', function($scope, DATA){
     var categories = this;
-
+    sessionStorage.clear();
     // Set Defaults
     $scope.$watch('lang', function(n, o){
       // Categories
@@ -169,7 +169,18 @@
         }else{
           words = $filter('filter')(data, {'category': category}, true);
         }
+        var usedWords = JSON.parse(sessionStorage.getItem('used')) || [];
+        for(var u = 0; u < usedWords.length; u++){
+          words = $filter('filter')(words, {'name': usedWords[u]['name']}, function(actual, expected){
+            return !angular.equals(actual, expected);
+          });
+        }
+        if(words.length === 0){
+          sessionStorage.clear();
+        }
         var n = Math.round(Math.random() * (words.length - 1));
+        usedWords.push(words[n]);
+        sessionStorage.setItem('used', JSON.stringify(usedWords));
         var word = words[n].name;
         game.allWord = word;
         word = word.split(' ');
