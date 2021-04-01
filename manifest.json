@@ -29,5 +29,5 @@
   "start_url": "./?utm_source=web_app_manifest",
   "theme_color": "#424242",
   "background_color": "#424242",
-  "display": "minimal-ui"
+  "display": "standalone"
 }
