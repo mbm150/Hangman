@@ -1,9 +1,7 @@
-const cacheName = 'hangman-v3';
+const cacheName = 'hangman-v7';
 const assets = [
     '/',
-    '/#/',
     '/index.html',
-    'index.html#/',
     '/views/add_word.html',
     '/views/categories.html',
     '/views/controls.html',
@@ -83,8 +81,8 @@ self.addEventListener('activate', evt => {
 self.addEventListener('fetch', evt => {
     //console.log('Cazado', evt);
     evt.respondWith(
-        caches.match(evt.request).then(cacheRes => {
-            return cacheRes || fetch(evt.request);
-        })
+         caches.match(evt.request).then(cacheRes => {
+             return cacheRes || fetch(evt.request);
+         })
     );
 });

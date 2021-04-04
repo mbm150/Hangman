@@ -64,7 +64,8 @@ if('serviceWorker' in navigator){
       }
     });
     // Lenguage and resources
-    $scope.lang = localStorage.getItem('lang') || 'es';
+    var userLang = navigator.language || navigator.userLanguage;
+    $scope.lang = localStorage.getItem('lang') || userLang;
 
     DATA.texts($scope.lang).success(function(data){
       $scope.texts = data;
