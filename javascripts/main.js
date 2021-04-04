@@ -67,7 +67,11 @@ if('serviceWorker' in navigator){
     var userLang = function(){
       var uLang = navigator.language || navigator.userLanguage;
       var number = uLang.indexOf('-');
+      if(number < 2){
+        number = 2;
+      }
       var l = uLang.slice(0, number);
+      console.log(uLang, number, l);
       if(l === "es" || l === "en"){
         return l;
       }else{

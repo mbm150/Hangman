@@ -1,4 +1,4 @@
-const cacheName = 'hangman-v8';
+const cacheName = 'hangman-v9';
 const assets = [
     '/',
     '/index.html',
